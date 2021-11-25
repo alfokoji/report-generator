@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="autocomplete_style.css">
+  <link rel="shortcut icon" href="./img/icon.ico" type="image/x-icon">
+  <title>Word</title>
+</head>
+
+<body>
+  <img class="headimg" src="./img/head.png" alt="">
+
+  <div id="folha" class="folha">
+    <div class="marginPaper">
+      <form action="/action_page.php" autocomplete="off">
+        <!-- <input onclick="clean()" type="submit" value="Limpar"> -->
+        <div class="autocomplete">
+          <input autofocus value="" id="defect_input" name="sintoma" type="text" placeholder="." />
+        </div>
+      </form>
+
+      <!-- ↓ BUTTONS ↓  -->
+      <input id="add_defect_button" type="submit" value="Add" />
+      <input id="cut_button" type="submit" value="Recortar" /><br>
+      <div id="concluded_list"></div>
+      <div id="conclusion_list"></div><br />
+      <div id="obs_list"></div></div>
+    <!-- </marginpaper-->
+  </div>
+  <!-- /folha-->
+
+  <script src="./storage.js"></script>
+  <script src="./functions.js"></script>
+  <script src="./index.js"></script>
+  
+  <!-- <script src="https://www.gstatic.com/firebasejs//8.2.9/firebase.js"></script> -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+  <!-- <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script> -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+
+  <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyAO6vOYzgHAcY2U7kW-RmDJtkkmQpfnp7E",
+        authDomain: "idteste.firebaseapp.com",
+        databaseURL: "https://idteste-default-rtdb.firebaseio.com",
+        projectId: "idteste",
+        storageBucket: "idteste.appspot.com",
+        messagingSenderId: "848426475077",
+        appId: "1:848426475077:web:a96a66056b07a292f70d2c",
+      };
+      const app = initializeApp(firebaseConfig);
+      import { getDatabase, get, set, ref, child } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-database.js";
+
+
+      renderScreen();
+      
+      function sendToDatabase(collection_str, data_obj) {
+        console.log("sendToDatabase", collection_str, data_obj);
+        return getDatabase().ref().child(collection_str).push(data_obj);
+      }
+      sendToDatabase("teste", { testes: "teste" });
+
+      const database = (function(){
+        
+        getDatabase().ref("teste").on("value", function (snapshot) {
+        const a = []
+        // debugger
+        snapshot.forEach(item => {
+          // console.log(item.val());
+          a.push(item.val())
+        })  
+        // console.log(a);
+        console.log(a);
+        return a
+        });
+      })()
+      // console.log(database);
+
+      console.log(
+        'a',
+        getDatabase()
+      );
+    </script> 
+</body>
+
+</html>

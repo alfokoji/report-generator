@@ -1,0 +1,68 @@
+
+.autocomplete {
+  /* o contêiner deve ser posicionado em relação a: */
+  position: relative;
+  display: inline-block;
+	width: 100%;
+}
+input {
+  border: 1px solid transparent;
+  /* background-color: #f1f1f1; */
+  padding: 10px;
+  font-size: 16px;
+	outline: none;
+}
+input[type="text"] {
+  border-radius: 5px;
+  /* background-color: #f1f1f1; */
+  margin: 5px 0 1px 10px ;
+  width: 100%;
+  /* max-width: 800px; */
+  transition: width 1.5s;
+}
+
+/* input[type="text"]:focus {
+  width: 60vw; 
+}
+input[type="text"]:hover {
+  width: 60vw; 
+} */
+input[type="submit"] {
+  /*background-color: dodgerblue;*/
+  background-color: white;
+  /*color: #fff;*/
+  margin: 5px 0px 15px 10px;
+  padding: 5px;
+  border-radius: 5px;
+  cursor:text;
+}
+/* input[type="submit"]:active {
+  background-color: rgb(15, 61, 107);
+} */
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: 1px solid none;
+  border-top: none;
+  z-index: 99;
+  /* posiciona os itens de preenchimento automático com a mesma largura do contêiner: */
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.autocomplete-items div {
+	width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9;
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}

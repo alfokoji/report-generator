@@ -1,0 +1,9 @@
+{
+    "HD_com_erro_critico":{
+    "name":"HD com erro critico",
+    "actions":["Troca do hd", "Instalação do sistema"],
+    "link":"_Link do HD:"
+  }
+}
+
+

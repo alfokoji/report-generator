@@ -1,0 +1,14 @@
+{
+  "name": "laudo-v-array-simples",
+  "version": "1.0.0",
+  "description": "1. gerar um laudo com defeitos e açoes pre definidos \r 2. as açoes devem ser automaticas para cada defeitos de",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
